@@ -1,36 +1,78 @@
-<!-- October 17, 2023 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mabait ang mga naka-On Cam</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Header 1</h1>
-    <h2>Header 2</h2>
-    <h3>Header 3</h3>
-    <h4>Header 4</h4>
-    <h5>Header 5</h5>
-    <h6>Header 6</h6>
+    <head>
+        <meta charset="UTF-8">
+        <title> Mabait ang mga naka-On Cam </title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
 
-    <p> In publishing and graphic design, Lorem ipsum is a placeholder</p>
-    <p>Another paragraph</p>
-    <strong>This is bold</strong>
-    <i>Italic</i>
-    <u>underline</u>
+        <script>
+            function enrollmentForm() {
+                let lastname = document.forms["EnrollmentForm"]["lastname"].value;
+                if (lastname == "") {
+                    alert("You have to put your lastname");
+                    return false;
+                }
+            }
+        </script>
+        
+        
+    </head>
+    <body>
+        <!---Table has components:
+        Table Header - <th>
+        Table row - <tr>
+        Table column - <td>
+        Column inside the table - <col> <colgroup> <colspan> -->
+
+        <table>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th colspan="2">Two Favorite Colors</th>
+            </tr>
+            <tr>
+                <td>Sales</td>
+                <td>Angela</td>
+                <td>Ligumbres</td>
+                <td>Blue</td>
+                <td>Red</td>
+            </tr>
+        </table>
+        <h1> Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+
+        <p> In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available</p>
+        <p> Another paragraph </p>
     
-    
-    <br>
+        <strong> This is bold </strong>
+        <b> This is bold </b>
 
-    <hr>
+        <i> Italic </i>
+        <u> underline </u>
 
-    <a href="https://www.netflix.com/browse" target="_blank">This is link</a>
-    <br>
-    <a 
-        href="https://freecatphotoapp.com"  target="_blank"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back.">
-    </a>
+        <img src="https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png" height="50" width="100">
 
-</body>
+        <br>
+        <hr width="70%">
+
+        <a href="https://www.netflix.com/browse" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png" alt="Hello"></a>
+        
+        <form name="EnrollmentForm" action="" method="post" onsubmit="return enrollmentForm()">
+                <label for="">Last Name:</label>
+                <input type="text" name="lastname">
+
+                <br>
+
+                <label>Email Address:</label>
+                <input type="email" name="emailaddress">
+
+                <input type="submit" value="Enroll Now" name="submit">
+        </form>
+    </body>
 </html>
+

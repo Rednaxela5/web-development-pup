@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Style the input field */
+    #addressInput {
+      width: 300px;
+      padding: 5px;
+    }
+
+    /* Style the pop-up panel (hidden by default) */
+    #addressPanel {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      z-index: 1;
+      max-height: 150px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="addressInput" placeholder="Enter your address">
+  <div id="addressPanel"></div>
+
+  <script>
+    const addressInput = document.getElementById("addressInput");
+    const addressPanel = document.getElementById("addressPanel");
+
+    // Mock address suggestions data for different regions
+    const addressSuggestions = {
+      'Region A': ['Address 1A', 'Address 2A', 'Address 3A'],
+      'Region B': ['Address 1B', 'Address 2B', 'Address 3B'],
+      'Region C': ['Address 1C', 'Address 2C', 'Address 3C'],
+    };
+
+    // Function to show the panel with region-specific suggestions
+    function showPanel() {
+      const inputValue = addressInput.value;
+      const selectedRegion = "Region A"; // Replace with your logic to get the selected region
+      const suggestions = addressSuggestions[selectedRegion] || [];
+      addressPanel.innerHTML = suggestions.map(suggestion => `<div>${suggestion}</div>`).join("");
+      addressPanel.style.display = "block";
+    }
+
+    // Event listeners
+    addressInput.addEventListener("focus", showPanel);
+    addressInput.addEventListener("blur", () => {
+      // Hide the panel on blur
+      addressPanel.style.display = "none";
+    });
+  </script>
+</body>
+</html>

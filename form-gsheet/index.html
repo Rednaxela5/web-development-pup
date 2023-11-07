@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Contact Us</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="https://sheetdb.io/api/v1/uiis4obn4a0xd" id="sheetdb-form">
+            <h4>Contact Us</h4>
+            <input type="text" name="data[Name]"placeholder="Enter you name"  required>
+            <input type="text" name="data[Number]" placeholder="Enter your number" required>
+            <input type="email" name="data[Email]" placeholder="Enter your email" required>
+            <textarea name="data[Message]" rows="7" placeholder="Enter your message" required></textarea>
+            <input type="submit" value="Submit" name="submit" id="submit">
+        </form>
+    </div>
+    
+    <script>
+        var form = document.getElementById("sheetdb-form");
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            
+            var confimation = confirm("Are you sure you want to submit the form?");
+
+            if (confimation) {
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(document.getElementById("sheetdb-form")),
+                }).then(function(response) {
+                    return response.json();
+                }).then(function(html){
+                    // Clear the form inputs
+                    form.reset();
+                    alert("Your response has been submitted");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

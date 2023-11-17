@@ -3,19 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title> Mabait ang mga naka-On Cam </title>
-        <link href="styles.css" rel="stylesheet" type="text/css">
-
-        <script>
-            function enrollmentForm() {
-                let lastname = document.forms["EnrollmentForm"]["lastname"].value;
-                if (lastname == "") {
-                    alert("You have to put your lastname");
-                    return false;
-                }
-            }
-        </script>
-        
-        
+        <link href="styles.css" rel="stylesheet" type="text/css"> 
     </head>
     <body>
         <!---Table has components:
@@ -24,7 +12,7 @@
         Table column - <td>
         Column inside the table - <col> <colgroup> <colspan> -->
 
-        <table>
+        <table id="table">
             <tr>
                 <th>Last Name</th>
                 <th>First Name</th>
@@ -62,17 +50,51 @@
 
         <a href="https://www.netflix.com/browse" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png" alt="Hello"></a>
         
-        <form name="EnrollmentForm" action="" method="post" onsubmit="return enrollmentForm()">
+        <form name="EnrollmentForm" action="https://script.google.com/macros/s/AKfycbwO0qrXZyADW1QHWvVKN1JEw6gB42BbF2dpJOr08co7AxyuziEK1EoLkpdEfE3Brs9o/exec" method="post" id="sheetdb-form">
                 <label for="">Last Name:</label>
-                <input type="text" name="lastname">
+                <input type="text" name="Last Name">
+
 
                 <br>
 
-                <label>Email Address:</label>
-                <input type="email" name="emailaddress">
+                <label for="">First Name:</label>
+                <input type="text" name="First Name" required>
 
-                <input type="submit" value="Enroll Now" name="submit">
+                <br>
+
+                <label for="">Middle Initial</label>
+                <input type="text" name="Middle Initial"  maxlength="2" required>
+                
+                <br>
+
+                <input type="submit" value="Enroll Now" name="submit" required>
         </form>
+
+        <br>
+        <br><br><br><br><br>
+        <p align="right"><a href="#table">go to top</a></p>
+
+        <script>
+            var form = document.getElementById("sheetdb-form");
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                
+                var confirmation = confirm("Are you sure you want to submit the form?");
+
+                if (confirmation) {
+                    fetch(form.action, {
+                        method: "POST",
+                        body: new FormData(form),
+                    }).then(function (response) {
+                        return response.json();
+                    }).then(function (html) {
+                        // Clear the form inputs
+                        form.reset();
+                        alert("Your response has been submitted");
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
 

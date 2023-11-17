@@ -1,4 +1,12 @@
 table, td, th, tr {
     border: 2px solid black;
     background-color: green;
+    margin: 20px;
+    padding: 20px;
 }
+
+#table {
+    border: 3px solid green;
+    background-color: solid blue;
+}
+

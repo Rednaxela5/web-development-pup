@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Announcement</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        #announcement-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #announcement-output {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #announcement-result {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="announcement-form">
+        <label for="subject">Select Subject:</label>
+        <select id="subject">
+            <option value="Fundamentals of Research">Fundamentals of Research</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Database Administration">Database Administration</option>
+            <option value="Art Appreciation">Art Appreciation</option>
+            <option value="System Integration and Architecture 1">System Integration and Architecture 1</option>
+            <option value="Multimedia">Multimedia</option>
+            <option value="IT Elective 1">IT Elective 1</option>
+        </select>
+
+        <label for="dateTime">Select Date and Time:</label>
+        <input type="datetime-local" id="dateTime" required>
+
+        <label for="location">Where:</label>
+        <input type="text" id="location" placeholder="Meeting Link or Room Number" required>
+
+        <label for="online">Online</label>
+        <input type="radio" id="online" name="locationType" value="online" checked>
+        <label for="faceToFace">Face to Face</label>
+        <input type="radio" id="faceToFace" name="locationType" value="faceToFace">
+
+        <button onclick="generateAnnouncement()">Generate Announcement</button>
+
+        <div id="announcement-output">
+            <div id="announcement-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateAnnouncement() {
+            var subject = document.getElementById('subject').value;
+            var dateTime = document.getElementById('dateTime').value;
+            var location = document.getElementById('location').value;
+            var locationType = document.querySelector('input[name="locationType"]:checked').value;
+
+            var announcement = `📌 𝗖𝗹𝗮𝘀𝘀 𝗔𝗻𝗻𝗼𝘂𝗻𝗰𝗲𝗺𝗲𝗻𝘁 📌\n`;
+            announcement += `𝗪𝗵𝗮𝘁: ${subject}\n`;
+            announcement += `𝗪𝗵𝗲𝗻: ${dateTime}\n`;
+            announcement += `𝗪𝗵𝗲𝗿𝗲: ${locationType === 'online' ? `Online - ${location}` : `Face to Face - Room ${location}`}`;
+
+            document.getElementById('announcement-result').innerText = announcement;
+            document.getElementById('announcement-output').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

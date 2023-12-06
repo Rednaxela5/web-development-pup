@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="appscript" type="text/javascript" href="appscript.js">
+    <title>PUP BSIT 3rd Year Announcement Generator</title>
+</head>
+<body>
+    <div id="announcement-form">
+        <h1>📌 Announcement Generator 📌</h1>
+
+        <label for="subject">Select Subject:</label>
+        <select id="subject" required>
+            <option value="Fundamentals of Research">Fundamentals of Research</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Database Administration">Database Administration</option>
+            <option value="Art Appreciation">Art Appreciation</option>
+            <option value="System Integration and Architecture 1">System Integration and Architecture 1</option>
+            <option value="Multimedia">Multimedia</option>
+            <option value="IT Elective 1">IT Elective 1</option>
+        </select>
+
+        <label for="what">What:</label>
+        <input type="text" id="what" placeholder="Enter additional information">
+
+        <label for="dateTime">Select Date and Time:</label>
+        <input type="datetime-local" id="dateTime" required>
+
+        <label>Mode of Learning:</label>
+        <label for="online">
+            <input type="radio" id="online" name="modeOfLearning" value="online" onchange="toggleMeetingOptions()" class="inline"/>Online
+        </label>
+        
+        <label for="faceToFace">
+            <input type="radio" id="faceToFace" name="modeOfLearning" value="faceToFace" onchange="toggleMeetingOptions()" class="inline"/>Face to Face
+        </label>
+        
+
+        <div id="platform">
+            <label for="meetingPlatform">Platform:</label>
+            <select id="meetingPlatform" onchange="toggleMeetingOptions()">
+                <option value="Google Meet">Google Meet</option>
+                <option value="MS Teams">MS Teams</option>
+                <option value="Zoom">Zoom</option>
+            </select>
+        </div>
+
+
+        <div id="meetingLink" style="display: none;">
+            <label for="meetingLinkInput">Meeting Link:</label>
+            <input type="text" id="meetingLinkInput" placeholder="Enter meeting link">
+        </div>
+        
+        <div id="meetingID" style="display: none;">
+            <label for="meetingIdInput">Meeting ID:</label>
+            <input type="text" id="meetingIdInput" placeholder="Enter meeting ID">
+        </div>
+        
+        <div id="passcode" style="display: none;">
+            <label for="passcodeInput">Passcode:</label>
+            <input type="text" id="passcodeInput" placeholder="Enter passcode">
+        </div>
+        
+        
+        <div id="roomNumber" style="display: none;">
+            <label for="roomNumberInput">Room Number:</label>
+            <input type="text" id="roomNumberInput" placeholder="Enter room number">
+        </div>
+        <br>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" rows="7" placeholder="Enter additional comments"></textarea>
+
+
+        <button onclick="generateAnnouncement(), copyToClipboard()">Generate Announcement</button>
+        <button onclick="copyToClipboard()" class="copy-button">Copy to Clipboard</button>
+
+
+
+        <div id="announcement-output">
+        <div id="announcement-result"></div>
+        </div>
+        
+    </div>
+
+    <script src="appscript.js"></script>
+</body>
+</html>

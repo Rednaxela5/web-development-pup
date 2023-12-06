@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title> Mabait ang mga naka-On Cam </title>
         <link href="styles.css" rel="stylesheet" type="text/css"> 
+        <link rel="stylesheet" href="https://www.flaticon.com/free-icon/top_4229940?related_id=4501771&origin=search">
     </head>
     <body>
         <!---Table has components:
@@ -71,11 +72,79 @@
         </form>
 
         <br>
-        <br><br><br><br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
         <p align="right"><a href="#table">go to top</a></p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <button onclick="topFunction()" id="topBtn" title="Go to top"><i class="fas fa-arrow-up"></i> Top</button>
 
         <script>
-            var form = document.getElementById("sheetdb-form");
+            // Get the button
+            let mybutton = document.getElementById("topBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            function scrollFunction() 
+            {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) 
+                {
+                    mybutton.style.display = "block";
+                } 
+                else 
+                {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() 
+            {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            var form = document.getElementById("sheetdb-form"); // adjust the id in the form tag to match the sheetdb-form
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
                 
@@ -94,6 +163,7 @@
                     });
                 }
             });
+
         </script>
     </body>
 </html>
